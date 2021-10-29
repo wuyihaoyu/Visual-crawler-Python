@@ -72,7 +72,7 @@ class uiob:
         root.geometry('%dx%d+%d+%d' % (w, h, x, y))
 
     def click(self):
-        webbrowser.open("http://localhost:63342/duoduo-master/%E7%83%AD%E9%97%A8%E5%B0%8F%E8%AF%B4%E5%88%86%E6%9E%90.html")
+        webbrowser.open("http://localhost:63342/wuyi-master/%E7%83%AD%E9%97%A8%E5%B0%8F%E8%AF%B4%E5%88%86%E6%9E%90.html")
     # http://localhost:63342/duoduo/%E7%83%AD%E9%97%A8%E5%B0%8F%E8%AF%B4%E5%88%86%E6%9E%90.html
     def ui_process(self):
         root = Tk()

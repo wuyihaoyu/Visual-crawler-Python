@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eaef4627-8d68-45e0-a45c-2d81aaaccd23" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bangdan.csv" beforeDir="false" afterPath="$PROJECT_DIR$/bangdan.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leixing.csv" beforeDir="false" afterPath="$PROJECT_DIR$/leixing.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhuangtai.csv" beforeDir="false" afterPath="$PROJECT_DIR$/zhuangtai.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zzzs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/zzzs.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/热门小说分析.html" beforeDir="false" afterPath="$PROJECT_DIR$/热门小说分析.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

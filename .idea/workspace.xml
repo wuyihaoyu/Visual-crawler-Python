@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaef4627-8d68-45e0-a45c-2d81aaaccd23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bangdan.csv" beforeDir="false" afterPath="$PROJECT_DIR$/bangdan.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leixing.csv" beforeDir="false" afterPath="$PROJECT_DIR$/leixing.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zhuangtai.csv" beforeDir="false" afterPath="$PROJECT_DIR$/zhuangtai.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zzzs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/zzzs.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/热门小说分析.html" beforeDir="false" afterPath="$PROJECT_DIR$/热门小说分析.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,7 +44,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.login">
+  <component name="RunManager" selected="Python.Login_to_Spider">
     <configuration name="GUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="duoduo-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -55,6 +58,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Login_to_Spider" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="duoduo-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Login_to_Spider.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,9 +177,11 @@
       <item itemvalue="Python.main" />
       <item itemvalue="Python.login" />
       <item itemvalue="Python.sql" />
+      <item itemvalue="Python.Login_to_Spider" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Login_to_Spider" />
         <item itemvalue="Python.login" />
         <item itemvalue="Python.sql" />
         <item itemvalue="Python.main" />
@@ -181,7 +207,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

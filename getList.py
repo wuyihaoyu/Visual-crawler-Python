@@ -39,9 +39,12 @@ class getList:
             subList.append(author[i])
             subList.append(time[i])
             list.append(subList)
+        print(len(list))
+        numlist=100
+        lists=list[0:numlist]
         name = ['排名', '类型', '小说名称', '更新章节', '状态', '字数万字', '作者', '更新时间']
-        test = pd.DataFrame(columns=name, data=list)
+        test = pd.DataFrame(columns=name, data=lists)
         # 数据源是list
         print(test)
         test.to_csv('bangdan.csv')
-        return list
+        return lists

@@ -1,19 +1,17 @@
 from collections import Counter
-
+#
 # from bs4 import BeautifulSoup
 from pyecharts.charts import Bar, WordCloud, Pie, Page, Grid, Scatter
 import re
 import jieba.posseg as pseg
 from pyecharts import options as opts
 from pyecharts.charts import Funnel
-# from bs4 import BeautifulSoup
 import pandas as pd
 
 
 def remove_markers(str_list):
     pattern = re.compile(r'[^\u4e00-\u9fa5]')
     return [pattern.sub('', line) for line in str_list]
-
 
 
 def run():
@@ -30,10 +28,10 @@ def run():
     t.to_csv('zhuangtai.csv')
 
     dataci = data['小说名称']
-    print(dataci)
+    # print(dataci)
     word_list = list(dataci)
     word_list = remove_markers(word_list)
-    print(word_list)
+    # print(word_list)
 
     datazzzs = data[['作者', '字数万字']]
     # datazzzs=datazzzs.groupby('作者').apply(lambda x:x['字数(万字)'].sum())
@@ -43,13 +41,13 @@ def run():
     csvpm_file = './zzzs.csv'  # 导入csv数据
     datazzpm = pd.read_csv(csvpm_file)
     datazzpm = datazzpm.head(10)
-    print(datazzpm)
+    # print(datazzpm)
 
     words_list = []
     for line in word_list:
         words_list.extend(word for word, flag in pseg.cut(line, use_paddle=True) if flag in ['a', 'vd', 'n'])
     c1 = Counter(words_list)
-    print(c1)
+    # print(c1)
 
     a = (
         Bar(init_opts=opts.InitOpts(height="450px", width="900px"))
@@ -130,6 +128,9 @@ def run():
             .add(e)
             .render("热门小说分析.html")
     )
+
+
+try:
     with open("热门小说分析.html", "r+", encoding='utf-8') as html:
         html_bf = BeautifulSoup(html, 'lxml')
         divs = html_bf.select('.chart-container')
@@ -148,7 +149,8 @@ def run():
         html.truncate()
         html.write(html_new)
         html.close()
-
+except:
+    print("正常执行程序，有问题请打开pyec.py结尾")
 
 if __name__ == '__main__':
     ui = run()

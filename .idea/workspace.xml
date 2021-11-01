@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaef4627-8d68-45e0-a45c-2d81aaaccd23" name="Default Changelist" comment="" />
+    <list default="true" id="eaef4627-8d68-45e0-a45c-2d81aaaccd23" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login_to_Spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/Login_to_Spider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bangdan.csv" beforeDir="false" afterPath="$PROJECT_DIR$/bangdan.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getList.py" beforeDir="false" afterPath="$PROJECT_DIR$/getList.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leixing.csv" beforeDir="false" afterPath="$PROJECT_DIR$/leixing.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyec.py" beforeDir="false" afterPath="$PROJECT_DIR$/pyec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zhuangtai.csv" beforeDir="false" afterPath="$PROJECT_DIR$/zhuangtai.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zzzs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/zzzs.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/热门小说分析.html" beforeDir="false" afterPath="$PROJECT_DIR$/热门小说分析.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +33,7 @@
   <component name="ProjectId" id="1yIX2lEkUrZ7XvMr7id298ZB3kF" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../douban_movies_top250-master" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -37,27 +49,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.Login_to_Spider">
-    <configuration name="GUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="duoduo-master" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="Login_to_Spider" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="duoduo-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -92,6 +83,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/getList.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="log" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="duoduo-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/log.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,19 +177,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.getList" />
-      <item itemvalue="Python.GUI" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.login" />
       <item itemvalue="Python.sql" />
       <item itemvalue="Python.Login_to_Spider" />
+      <item itemvalue="Python.log" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Login_to_Spider" />
         <item itemvalue="Python.login" />
+        <item itemvalue="Python.log" />
         <item itemvalue="Python.sql" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.GUI" />
       </list>
     </recent_temporary>
   </component>

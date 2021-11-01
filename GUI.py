@@ -3,22 +3,28 @@ from threading import Thread
 from tkinter import *
 from tkinter import ttk
 import tkinter as tk
-import sql
+import wx
 
+import sql
+import datetime
 
 from getList import getList
 from pyec import run
+
 
 def thread_it(func, *args):
     '''
     将函数打包进线程
     '''
     # 创建
+    # strtimer1=func()
     t = Thread(target=func, args=args)
     # 守护
     t.setDaemon(True)
     # 启动
     t.start()
+
+
 class uiob:
 
     def clear_tree(self, tree):
@@ -28,7 +34,6 @@ class uiob:
         x = tree.get_children()
         for item in x:
             tree.delete(item)
-
 
     def add_tree(self, list, tree):
         '''
@@ -40,18 +45,34 @@ class uiob:
             i = i + 1
         tree.grid()
 
-
     def searh(self):
+
         self.clear_tree(self.treeview)  # 清空表格
         self.B_0['text'] = '正在努力搜索'
+
+        starttime = datetime.datetime.now() # 起始时间
+
         getob = getList()
-        list = getob.input()
-        self.add_tree(list, self.treeview)  # 将数据添加到tree中
+        lists = getob.input()
+
+        endtime = datetime.datetime.now()  # 结束时间
+        Clientlog = open('spider_log.txt', 'ba+')
+        Clientlog.write(str("\t*****爬虫日志*****\t\n").encode('utf-8'))
+        Clientlog.write(str("[开始时间]" + str(starttime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
+        Clientlog.write(str("[结束时间]" + str(endtime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
+        Clientlog.write(str("[线程数]" + str(1) + '\n').encode('utf-8'))
+        Clientlog.write(str("[爬取数据量]" + str(len(lists)) + '\n').encode('utf-8'))
+        Clientlog.write(str("[总耗时]" + str((endtime - starttime).microseconds/1000) + 'ms\n').encode('utf-8'))
+        strtime = '耗时'+str((endtime - starttime).microseconds/1000) + 'ms '+'抓取'+str(len(lists))+'条数据'
+        print(strtime)
+        self.add_tree(lists, self.treeview)  # 将数据添加到tree中
+        wx.MessageBox(strtime,caption="抓取成功")
 
         self.B_0['state'] = NORMAL
         self.B_0['text'] = '更新榜单'
         sql.runsql()
         run()
+        # return strtime
 
     def center_window(self, root, w, h):
         """
@@ -66,40 +87,46 @@ class uiob:
         hs = root.winfo_screenheight()
 
         # 计算 x, y 位置
-        x = (ws/2) - (w/2)
-        y = (hs/2) - (h/2)
+        x = (ws / 2) - (w / 2)
+        y = (hs / 2) - (h / 2)
 
         root.geometry('%dx%d+%d+%d' % (w, h, x, y))
 
     def click(self):
-        webbrowser.open("http://localhost:63342/wuyi-master/%E7%83%AD%E9%97%A8%E5%B0%8F%E8%AF%B4%E5%88%86%E6%9E%90.html")
+        webbrowser.open(
+            "http://localhost:63342/wuyi-master/%E7%83%AD%E9%97%A8%E5%B0%8F%E8%AF%B4%E5%88%86%E6%9E%90.html")
+
     # http://localhost:63342/duoduo/%E7%83%AD%E9%97%A8%E5%B0%8F%E8%AF%B4%E5%88%86%E6%9E%90.html
     def ui_process(self):
         root = Tk()
         self.root = root
 
-        root.title("图书热门榜")
+        root.title("图书信息爬取")
         self.center_window(root, 900, 350)
-        root.resizable(0,0)
+        root.resizable(0, 0)
         root['highlightcolor'] = 'yellow'
 
-        labelframe = LabelFrame(root, width=900, height=350,background = "white")
+        labelframe = LabelFrame(root, width=900, height=350, background="white")
         labelframe.place(x=5, y=5)
         self.labelframe = labelframe
         # 图片
         photo = tk.PhotoImage(file="duoduo.png")
-        Lab = tk.Label(root, image=photo,)
+        Lab = tk.Label(root, image=photo, )
         Lab.place(x=10, y=10)
+
+
+
+
 
         B_1 = Button(labelframe, text="数据分析", background="white")
         B_1.place(x=500, y=25, width=150, height=50)
         self.B_1 = B_1
         B_1.configure(command=lambda: thread_it(self.click()))  # 按钮绑定单击事件
         # 查询按钮
-        B_0 = Button(labelframe, text="更新榜单",background = "white")
-        B_0.place(x=700, y=25,width=150,height=50)
+        B_0 = Button(labelframe, text="更新榜单", background="white")
+        B_0.place(x=700, y=25, width=150, height=50)
         self.B_0 = B_0
-        B_0.configure(command=lambda: thread_it(self.searh)) #按钮绑定单击事件
+        B_0.configure(command=lambda: thread_it(self.searh))  # 按钮绑定单击事件
         # 框架布局，承载多个控件
         frame_root = Frame(labelframe)
         frame_l = Frame(frame_root)
@@ -142,7 +169,5 @@ class uiob:
         frame_l.grid(row=0, column=0, sticky=NSEW)
         frame_r.grid(row=0, column=1, sticky=NS)
         frame_root.place(x=10, y=100)
-
-
 
         root.mainloop()

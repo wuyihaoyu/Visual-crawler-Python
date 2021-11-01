@@ -20,7 +20,7 @@ from GUI import uiob
 class loginFrame(wx.Frame):
 
     def __init__(self, parent):  # 框体布局
-        wx.Frame.__init__(self, parent, id=wx.ID_ANY, title=u"KuroNeko_Client——欢迎", pos=wx.DefaultPosition,
+        wx.Frame.__init__(self, parent, id=wx.ID_ANY, title=u"欢迎使用爬虫系统", pos=wx.DefaultPosition,
                           size=wx.Size(289, 153), style=wx.DEFAULT_FRAME_STYLE | wx.TAB_TRAVERSAL)
 
         self.SetSizeHints(wx.DefaultSize, wx.DefaultSize)

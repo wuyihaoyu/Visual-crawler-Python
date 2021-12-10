@@ -45,31 +45,45 @@ class uiob:
             i = i + 1
         tree.grid()
 
-    def searh(self):
-
+    def searh(self, fn):
+        listcv = fn()
+        print('----------这里是选择元素数组----------')
+        print(listcv)
         self.clear_tree(self.treeview)  # 清空表格
         self.B_0['text'] = '正在努力搜索'
 
-        starttime = datetime.datetime.now() # 起始时间
+        starttime = datetime.datetime.now()  # 起始时间
 
         getob = getList()
-        lists = getob.input()
+        lists = getob.input(listcv)
 
         endtime = datetime.datetime.now()  # 结束时间
         Clientlog = open('spider_log.txt', 'ba+')
-        Clientlog.write(str("\t*****爬虫日志*****\t\n").encode('utf-8'))
+        # Clientlog.write(str("\t*****爬虫日志*****\t\n").encode('utf-8'))
         Clientlog.write(str("[开始时间]" + str(starttime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
         Clientlog.write(str("[结束时间]" + str(endtime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
         Clientlog.write(str("[线程数]" + str(1) + '\n').encode('utf-8'))
         Clientlog.write(str("[爬取数据量]" + str(len(lists)) + '\n').encode('utf-8'))
-        Clientlog.write(str("[总耗时]" + str((endtime - starttime).microseconds/1000) + 'ms\n').encode('utf-8'))
-        strtime = '耗时'+str((endtime - starttime).microseconds/1000) + 'ms '+'抓取'+str(len(lists))+'条数据'
+        Clientlog.write(str("[总耗时]" + str((endtime - starttime).microseconds / 1000) + 'ms\n').encode('utf-8'))
+        strtime = '耗时' + str((endtime - starttime).microseconds / 1000) + 'ms ' + '抓取' + str(len(lists)) + '条数据'
         print(strtime)
         self.add_tree(lists, self.treeview)  # 将数据添加到tree中
-        wx.MessageBox(strtime,caption="抓取成功")
+        wx.MessageBox(strtime, caption="抓取成功")
 
         self.B_0['state'] = NORMAL
         self.B_0['text'] = '更新榜单'
+
+        # 11111111111111111111111---------------------------
+        # var = tk.IntVar()
+        # names = [(1, '序号'), (2, '类型'), (3, '小说名称'), (4, '更新章节'), (5, '状态'), (6, '字数'), (7, '作者'), (8, '更新时间')]
+        #
+        # for index, name in names:
+        #     # grid(row=index, column=1, sticky=tkinter.W)
+        #     tk.Radiobutton(root, text=name, variable=var, value=index).pack(anchor=tk.W)
+        #
+        # print('你选中的项值为:', var.get())
+        # 11111111111111111111111--------------------------
+
         sql.runsql()
         run()
         # return strtime
@@ -97,6 +111,7 @@ class uiob:
             "http://localhost:63342/wuyi-master/%E7%83%AD%E9%97%A8%E5%B0%8F%E8%AF%B4%E5%88%86%E6%9E%90.html")
 
     # http://localhost:63342/duoduo/%E7%83%AD%E9%97%A8%E5%B0%8F%E8%AF%B4%E5%88%86%E6%9E%90.html
+
     def ui_process(self):
         root = Tk()
         self.root = root
@@ -110,23 +125,81 @@ class uiob:
         labelframe.place(x=5, y=5)
         self.labelframe = labelframe
         # 图片
-        photo = tk.PhotoImage(file="duoduo.png")
-        Lab = tk.Label(root, image=photo, )
-        Lab.place(x=10, y=10)
+        # photo = tk.PhotoImage(file="duoduo.png")
+        # Lab = tk.Label(root, image=photo)
+        # Lab.place(x=10, y=10)
 
+        # var = tk.IntVar()
+        # names = [(1, '序号'), (2, '类型'), (3, '小说名称'), (4, '更新章节'), (5, '状态'), (6, '字数'), (7, '作者'), (8, '更新时间')]
+        #
+        # for index, name in names:
+        #     # grid(row=index, column=1, sticky=tkinter.W)
+        #     tk.Radiobutton(root, text=name, variable=var, value=index).pack(anchor=tk.W)
 
+        CheckVar1 = tk.StringVar(value="0")
+        CheckVar2 = tk.StringVar(value="0")
+        CheckVar3 = tk.StringVar(value="0")
+        CheckVar4 = tk.StringVar(value="0")
+        CheckVar5 = tk.StringVar(value="0")
+        CheckVar6 = tk.StringVar(value="0")
+        CheckVar7 = tk.StringVar(value="0")
+        CheckVar8 = tk.StringVar(value="0")
 
+        C1 = Checkbutton(self.root, text="序号", variable=CheckVar1)
+        C2 = Checkbutton(self.root, text="类型", variable=CheckVar2)
+        C3 = Checkbutton(self.root, text="小说名称", variable=CheckVar3)
+        C4 = Checkbutton(self.root, text="更新章节", variable=CheckVar4)
+        C5 = Checkbutton(self.root, text="状态", variable=CheckVar5)
+        C6 = Checkbutton(self.root, text="字数", variable=CheckVar6)
+        C7 = Checkbutton(self.root, text="作者", variable=CheckVar7)
+        C8 = Checkbutton(self.root, text="更新时间", variable=CheckVar8)
+        C1.grid(row=1, column=6, sticky=tk.N)
+        C2.grid(row=1, column=7, sticky=tk.N)
+        C3.grid(row=1, column=8, sticky=tk.N)
+        C4.grid(row=1, column=9, sticky=tk.N)
+        C5.grid(row=1, column=10, sticky=tk.N)
+        C6.grid(row=1, column=11, sticky=tk.N)
+        C7.grid(row=1, column=12, sticky=tk.N)
+        C8.grid(row=1, column=13, sticky=tk.N)
 
+        var = tk.IntVar()
+        names = [(9, '新书榜'), (10, '畅销榜'), (11, '男生版'), (12, '女生版')]
+
+        for index, name in names:
+            tk.Radiobutton(self.root, text=name, variable=var, value=index).grid(row=3, column=index)
+
+        def button_Click(event=None):
+            cv1 = CheckVar1.get()
+            cv2 = CheckVar2.get()
+            cv3 = CheckVar3.get()
+            cv4 = CheckVar4.get()
+            cv5 = CheckVar5.get()
+            cv6 = CheckVar6.get()
+            cv7 = CheckVar7.get()
+            cv8 = CheckVar8.get()
+            cv9 = var.get()
+
+            print('你选中的项值为:', var.get())
+            print('--------这里是选择元素爬取---------')
+            # print(cv1)
+            # print(cv2)
+            # print(cv3)
+            # print(cv4)
+            # print(cv5)
+            # print(cv6)
+            # print(cv7)
+            # print(cv8)
+            return [cv1, cv2, cv3, cv4, cv5, cv6, cv7, cv8, cv9]
 
         B_1 = Button(labelframe, text="数据分析", background="white")
         B_1.place(x=500, y=25, width=150, height=50)
         self.B_1 = B_1
-        B_1.configure(command=lambda: thread_it(self.click()))  # 按钮绑定单击事件
+        B_1.configure(command=lambda: thread_it(self.click()))  # 按钮绑定单击事件self.click()
         # 查询按钮
         B_0 = Button(labelframe, text="更新榜单", background="white")
         B_0.place(x=700, y=25, width=150, height=50)
         self.B_0 = B_0
-        B_0.configure(command=lambda: thread_it(self.searh))  # 按钮绑定单击事件
+        B_0.configure(command=lambda: thread_it(self.searh(button_Click)))  # 按钮绑定单击事件
         # 框架布局，承载多个控件
         frame_root = Frame(labelframe)
         frame_l = Frame(frame_root)

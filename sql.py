@@ -1,5 +1,6 @@
 import pymysql
 import pandas as pd
+import datetime
 
 
 def runsql():
@@ -75,9 +76,19 @@ def runsql():
         print('-----------成功添加了' + str(counts) + '条数据----------------------------- ')
         print('--------------------------------------------------------- ')
         con.commit()
+        starttime = datetime.datetime.now()
+        Clientlog = open('spider_log.txt', 'ba+')
+        Clientlog.write(str("\t*****爬虫日志*****\t\n").encode('utf-8'))
+        Clientlog.write(str("存取数据库成功!!!!!\n").encode('utf-8'))
+        Clientlog.write(str("--时间---:" + str(starttime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
         print("数据存取成功")
     except Exception as e:
         print("创建数据库失败：case%s" % e)
+        starttime = datetime.datetime.now()
+        Clientlog = open('spider_log.txt', 'ba+')
+        Clientlog.write(str("\t*****爬虫日志*****\t\n").encode('utf-8'))
+        Clientlog.write(str("存取数据库失败!!!!!：case%s\n" % e).encode('utf-8'))
+        Clientlog.write(str("--时间---:" + str(starttime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
         con.rollback()
     finally:
         print("已关闭数据库")

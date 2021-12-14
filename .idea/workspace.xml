@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaef4627-8d68-45e0-a45c-2d81aaaccd23" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/threads.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bangdan.csv" beforeDir="false" afterPath="$PROJECT_DIR$/bangdan.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/getList.py" beforeDir="false" afterPath="$PROJECT_DIR$/getList.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leixing.csv" beforeDir="false" afterPath="$PROJECT_DIR$/leixing.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spider_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/spider_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zhuangtai.csv" beforeDir="false" afterPath="$PROJECT_DIR$/zhuangtai.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zzzs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/zzzs.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/热门小说分析.html" beforeDir="false" afterPath="$PROJECT_DIR$/热门小说分析.html" afterDir="false" />
@@ -217,5 +217,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/threads.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

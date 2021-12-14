@@ -4,6 +4,7 @@ from tkinter import *
 from tkinter import ttk
 import tkinter as tk
 import wx
+from threads import getList2
 
 import sql
 import datetime
@@ -50,43 +51,57 @@ class uiob:
         print('----------这里是选择元素数组----------')
         print(listcv)
         self.clear_tree(self.treeview)  # 清空表格
-        self.B_0['text'] = '正在努力搜索'
 
-        starttime = datetime.datetime.now()  # 起始时间
+        if listcv == 1:
+            # self.B_2['text'] = '正在努力搜索'
+            starttime = datetime.datetime.now()  # 起始时间
 
-        getob = getList()
-        lists = getob.input(listcv)
+            getob = getList2()
+            lists = getob.threadEX()
 
-        endtime = datetime.datetime.now()  # 结束时间
-        Clientlog = open('spider_log.txt', 'ba+')
-        # Clientlog.write(str("\t*****爬虫日志*****\t\n").encode('utf-8'))
-        Clientlog.write(str("[开始时间]" + str(starttime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
-        Clientlog.write(str("[结束时间]" + str(endtime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
-        Clientlog.write(str("[线程数]" + str(1) + '\n').encode('utf-8'))
-        Clientlog.write(str("[爬取数据量]" + str(len(lists)) + '\n').encode('utf-8'))
-        Clientlog.write(str("[总耗时]" + str((endtime - starttime).microseconds / 1000) + 'ms\n').encode('utf-8'))
-        strtime = '耗时' + str((endtime - starttime).microseconds / 1000) + 'ms ' + '抓取' + str(len(lists)) + '条数据'
-        print(strtime)
-        self.add_tree(lists, self.treeview)  # 将数据添加到tree中
-        wx.MessageBox(strtime, caption="抓取成功")
+            endtime = datetime.datetime.now()  # 结束时间
+            Clientlog = open('spider_log.txt', 'ba+')
+            # Clientlog.write(str("\t*****爬虫日志*****\t\n").encode('utf-8'))
+            Clientlog.write(str("[开始时间]" + str(starttime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
+            Clientlog.write(str("[结束时间]" + str(endtime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
+            Clientlog.write(str("[线程数]" + str(4) + '\n').encode('utf-8'))
+            Clientlog.write(str("[爬取数据量]" + str(len(lists)) + '\n').encode('utf-8'))
+            Clientlog.write(str("[总耗时]" + str((endtime - starttime).microseconds / 1000) + 'ms\n').encode('utf-8'))
+            strtime = '耗时' + str((endtime - starttime).microseconds / 1000) + 'ms ' + '抓取' + str(len(lists)) + '条数据'
+            print(strtime)
 
-        self.B_0['state'] = NORMAL
-        self.B_0['text'] = '更新榜单'
+            self.add_tree(lists, self.treeview)  # 将数据添加到tree中
+            wx.MessageBox(strtime, caption="多线程已抓取全部榜单成功")
 
-        # 11111111111111111111111---------------------------
-        # var = tk.IntVar()
-        # names = [(1, '序号'), (2, '类型'), (3, '小说名称'), (4, '更新章节'), (5, '状态'), (6, '字数'), (7, '作者'), (8, '更新时间')]
-        #
-        # for index, name in names:
-        #     # grid(row=index, column=1, sticky=tkinter.W)
-        #     tk.Radiobutton(root, text=name, variable=var, value=index).pack(anchor=tk.W)
-        #
-        # print('你选中的项值为:', var.get())
-        # 11111111111111111111111--------------------------
+            sql.runsql()
+            run()
 
-        sql.runsql()
-        run()
-        # return strtime
+        else:
+            # self.B_0['text'] = '正在努力搜索'
+            starttime = datetime.datetime.now()  # 起始时间
+
+            getob = getList()
+            lists = getob.input(listcv)
+
+            endtime = datetime.datetime.now()  # 结束时间
+            Clientlog = open('spider_log.txt', 'ba+')
+            # Clientlog.write(str("\t*****爬虫日志*****\t\n").encode('utf-8'))
+            Clientlog.write(str("[开始时间]" + str(starttime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
+            Clientlog.write(str("[结束时间]" + str(endtime.strftime('%Y/%m/%d %H:%M:%S')) + '\n').encode('utf-8'))
+            Clientlog.write(str("[线程数]" + str(1) + '\n').encode('utf-8'))
+            Clientlog.write(str("[爬取数据量]" + str(len(lists)) + '\n').encode('utf-8'))
+            Clientlog.write(str("[总耗时]" + str((endtime - starttime).microseconds / 1000) + 'ms\n').encode('utf-8'))
+            strtime = '耗时' + str((endtime - starttime).microseconds / 1000) + 'ms ' + '抓取' + str(len(lists)) + '条数据'
+            print(strtime)
+
+            self.add_tree(lists, self.treeview)  # 将数据添加到tree中
+            wx.MessageBox(strtime, caption="抓取成功")
+
+            # self.B_0['state'] = NORMAL
+            # self.B_0['text'] = '更新榜单'
+
+            sql.runsql()
+            run()
 
     def center_window(self, root, w, h):
         """
@@ -168,6 +183,9 @@ class uiob:
         for index, name in names:
             tk.Radiobutton(self.root, text=name, variable=var, value=index).grid(row=3, column=index)
 
+        def button_Click2(event=None):
+            return 1
+
         def button_Click(event=None):
             cv1 = CheckVar1.get()
             cv2 = CheckVar2.get()
@@ -197,9 +215,16 @@ class uiob:
         B_1.configure(command=lambda: thread_it(self.click()))  # 按钮绑定单击事件self.click()
         # 查询按钮
         B_0 = Button(labelframe, text="更新榜单", background="white")
-        B_0.place(x=700, y=25, width=150, height=50)
+        B_0.place(x=700, y=25, width=150, height=52)
+
         self.B_0 = B_0
         B_0.configure(command=lambda: thread_it(self.searh(button_Click)))  # 按钮绑定单击事件
+
+        B_2 = Button(labelframe, text="多线程榜单全爬取", background="white")
+        B_2.place(x=300, y=50, width=150, height=30)
+
+        self.B_2 = B_2
+        B_2.configure(command=lambda: thread_it(self.searh(button_Click2)))
         # 框架布局，承载多个控件
         frame_root = Frame(labelframe)
         frame_l = Frame(frame_root)

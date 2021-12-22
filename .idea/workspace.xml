@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaef4627-8d68-45e0-a45c-2d81aaaccd23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/threads.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bangdan.csv" beforeDir="false" afterPath="$PROJECT_DIR$/bangdan.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getList.py" beforeDir="false" afterPath="$PROJECT_DIR$/getList.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leixing.csv" beforeDir="false" afterPath="$PROJECT_DIR$/leixing.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spider_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/spider_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zhuangtai.csv" beforeDir="false" afterPath="$PROJECT_DIR$/zhuangtai.csv" afterDir="false" />
